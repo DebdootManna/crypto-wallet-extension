@@ -1,25 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "Crypto Wallet Extension",
-  "version": "1.0",
-  "description": "A free alternative to MetaMask.",
-  "permissions": ["storage", "activeTab"],
-  "host_permissions": ["https://*/*"],
+  "name": "Simple Crypto Wallet",
+  "version": "1.0.0",
+  "description": "A basic cryptocurrency wallet Chrome extension",
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage"],
   "background": {
     "service_worker": "src/background/background.ts"
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["src/contentScript/contentScript.ts"]
     }
-  ],
-  "action": {
-    "default_popup": "src/popup/index.html",
-    "default_icon": {
-      "16": "public/icons/icon16.png",
-      "48": "public/icons/icon48.png",
-      "128": "public/icons/icon128.png"
-    }
-  }
+  ]
 }
