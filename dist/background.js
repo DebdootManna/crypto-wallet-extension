@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener(()=>{console.log("Extension installed")});chrome.runtime.onMessage.addListener((e,n,t)=>{if(e.type==="GET_WALLET")return chrome.storage.local.get(["wallet","encryptedPrivateKey"],r=>{t({wallet:r.wallet,encryptedPrivateKey:r.encryptedPrivateKey})}),!0;if(e.type==="CONNECT_TO_SITE")return t({success:!0}),!0});
